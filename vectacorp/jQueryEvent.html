@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vecta Corp. - 24/7 365 turnkey vSolutions for agile eBusinesses</title>
+    <link href="styles/normalize.css" type="text/css" rel="stylesheet">
+    <script src="scripts/jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#btn1').click(function () {
+                alert('Button 1 is clicked');
+            });
+
+            $('#btn2').bind("click", function () {
+                alert('Button 2 is clicked');
+            });
+
+            $('#btn3').on("click", function () {
+                alert('Button 3 is clicked');
+            });
+
+            $('.btn').on("click", function () {
+                alert('Buttons are clicked');
+            });
+
+            $('div#vectacorp').css({ 'height': '400px', 'width': '400px' });
+
+            $("div#vectacorp").mouseenter(function () {
+                alert("Entered Divs");
+                $('#vectaspan').html("Entered Div");
+            });
+
+            $("div#vectacorp").mouseleave(function () {
+                alert("Div left");
+                $('#vectaspan').html("Left Div");
+            });
+
+            $("div#vectacorp").on("click", function () {
+                alert("Div Clicked");
+                $('#vectaspan').html("Clicked Div");
+            });
+
+            $('a').click(function (event) {
+                event.preventDefault();
+                $('a').css({ 'color': 'red' });
+                alert("clicked: " + event.target.nodeName);
+            });
+
+            $(window).resize(function () {
+                $('div#sizedisplay').text("Width: " + $(window).width() + " , Height: " + $(window).height())
+            });
+
+            $('#focustext').focusin(function () {
+                $('#focustext').css({ 'background-color': '#929CA4' })
+            });
+
+            $('#focustext').focusout(function () {
+                $('#focustext').css({ 'background-color': 'white' })
+            });
+
+            $("#target").submit(function (event) {
+                var isValid = true;
+                var name = $('#name').val().trim();
+                var email = $('#email').val().trim();
+                if (name == '') {
+                    alert('Enter name in the field');
+                    $('#name').css({ 'border-color': 'red' });
+                } if (email == '') {
+                    alert('Enter email in the field');
+                    $('#email').css({ 'border-color': 'red' });
+                } if (name != '' && email != '') {
+                    $('#name').css({ 'border-color': 'green' });
+                    $('#email').css({ 'border-color': 'green' });
+                }
+                event.preventDefault();
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <title>jQuery Assignment</title>
+
+    <div>
+        <a href="modulemedia.com"> Module Media</a></br></br>
+
+        <button id="btn1">Click Me</button>
+        <button id="btn2">Bind</button>
+        <button id="btn3">OnClick</button>
+        <button class="btn">Click Me</button>
+        <button class="btn">Click Me</button></br></br>
+
+        <span id="vectaspan"></span></br></br>
+        <input id="focustext" value="Click Me" type=text></br></br>
+
+        <form id="target">
+            Name: <input id="name" type=text></br></br>
+            Email: <input id="email" type="text"></br></br>
+            <input id="submit" type="submit" value="Submit">
+        </form>
+
+        <div id="sizedisplay"></div></br></br>
+
+        <div id="vectacorp"></div></br></br>
+
+    </div>
+</body>
+</html>
